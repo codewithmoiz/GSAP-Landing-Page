@@ -66,3 +66,56 @@ allData.forEach((data)=>{
     <div class="item"><p>${data.title}</p></div>
     `
 })
+
+document.querySelectorAll('.item').forEach((itm, index) => {
+    itm.addEventListener('mouseenter', () => {
+        if ((index + 1) % 2 === 0) {
+            console.log("Even");
+            gsap.to(['.img-1', '.img-2'], {
+                width: "300px",
+                opacity: 1,
+                duration: 0.5,
+                ease: "power3.easeInOut"
+            });
+        } else {
+            gsap.to('.img-3', {
+                height: "350px",
+                opacity: 1,
+                duration: 0.5,
+                ease: "power3.easeInOut"
+            });
+        }
+        gsap.to('.description, .title, .tag',{
+            transform: "translateY(0%)",
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.easeInOut"
+        })
+    });
+
+    itm.addEventListener('mouseleave', () => {
+        if ((index + 1) % 2 === 0) {
+            console.log("Even");
+            gsap.to(['.img-1', '.img-2'], {
+                width: "0px",
+                opacity: 0,
+                duration: 0.5,
+                ease: "power3.easeInOut"
+            });
+        } else {
+            gsap.to('.img-3', {
+                height: "0px",
+                opacity: 0,
+                duration: 0.5,
+                ease: "power3.easeInOut"
+            });
+        }
+        gsap.to('.description, .title, .tag',{
+            transform: "translateY(120%)",
+            opacity: 0,
+            duration: 0.5,
+            ease: "power3.easeInOut"
+        })
+    });
+});
+

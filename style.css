@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -53,7 +55,7 @@ nav .time{
 .hero{
     height: 89vh;
     width: 100%;
-    background-color: #000;
+    /* background-color: #000; */
     padding: 0 35px;
     display: flex;
     align-items: center;
@@ -82,4 +84,77 @@ nav .time{
 .item:hover{
     background-color: rgba(0,0,0,0.5);
     border: 1.5px solid #fff;
+}
+.hero .container{
+    height: 100%;
+    width: 90%;
+    /* background-color: aliceblue; */
+    position: relative;
+}
+.container .description-container{
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    /* background-color: yellow; */
+    width: 30%;
+    overflow: hidden;
+}
+.container p.description{
+    /* font-family: "Playfair Display", serif; */
+    font-weight: 400;
+    font-size: 17px;
+}
+.container .tag-container{
+    position: absolute;
+    left: 30%;
+    top: 10%;
+    /* background-color: coral; */
+}
+.container h3.tag{
+    font-size: 16px;
+    font-weight: 300;
+}
+.container .title-container{
+    position: absolute;
+    left: 38%;
+    bottom: 5%;
+    /* background-color: thistle; */
+}
+.container h1.title{
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: 60px;
+}
+.container img{
+    height: 350px;
+    width: 250px;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+}
+.container .img-1{
+    top: 50%;
+    left: 2.5%;
+    transform: translateY(-50%);
+    width: 300px;
+    width: 0;
+}
+.container .img-2{
+    top: 5%;
+    right: 2.5%;
+    height: 300px;
+    width: 0;
+}
+.container .img-3{
+    bottom: 5%;
+    right: 2.5%;
+    height: 210px;
+    height: 0;
+}
+.description-container, .tag-container,.title-container{
+    overflow: hidden;
+}
+.description-container p, .tag-container h3,.title-container h1{
+    transform: translateY(120%);
+    color: #fff;
 }
