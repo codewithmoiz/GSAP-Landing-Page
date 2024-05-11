@@ -90,17 +90,24 @@ document.querySelectorAll('.item').forEach((itm, index) => {
     itm.addEventListener('mouseenter', () => {
         if ((index + 1) % 2 === 0) {
             console.log("Even");
-            gsap.to(['.img-1', '.img-2'], {
+            gsap.fromTo(['.img-1', '.img-2'], {
+               width: '0px',
+               opacity: 0,
+            },{
                 width: "300px",
                 opacity: 1,
-                duration: 0.5,
-                ease: "power3.easeInOut"
+                duration: 0.8,
+                ease: "slow(0.7,0.7,false)"
             });
+
+            gsap.set('#main',{
+                backgroundColor: '#fff',
+                opacity: 1
+            })
 
             gsap.to('#main',{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${i[index].bgImg})`,
-                duartion: 0,
-                // ease: "power3.easeInOut"
+                duration: 0
             });
 
             document.querySelector('.description').innerHTML = i[index].description;
@@ -116,48 +123,54 @@ document.querySelectorAll('.item').forEach((itm, index) => {
 
             gsap.to('#main',{
                 backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${i[index].bgImg})`,
-                duration: 0,
-                // ease: "power3.easeInOut"
+                duration: 0
             });
 
-            gsap.to('.img-3', {
+            gsap.fromTo('.img-3', {
+                height: "0px",
+                opacity: 0
+            }, {
                 height: "350px",
                 opacity: 1,
-                duration: 0.5,
-                ease: "power3.easeInOut"
+                duration: 0.8,
+                ease: "slow(0.7,0.7,false)"
             });
         }
         gsap.to('.description, .title, .tag',{
-            transform: "translateY(0%)",
+            transform: "translateX(0%)",
             opacity: 1,
-            duration: 0.5,
-            ease: "power3.easeInOut"
+            duration: 0.8,
+            ease: "slow(0.7,0.7,false)"
         });
     });
 
     itm.addEventListener('mouseleave', () => {
-    
-
         if ((index + 1) % 2 === 0) {
             gsap.to(['.img-1', '.img-2'], {
                 width: "0px",
                 opacity: 0,
-                duration: 0.5,
-                ease: "power3.easeInOut"
+                duration: 0.7,
+                ease: "slow(0.7,0.7,false)"
             });
         } else {
             gsap.to('.img-3', {
                 height: "0px",
                 opacity: 0,
-                duration: 0.5,
-                ease: "power3.easeInOut"
+                duration: 0.7,
+                ease: "slow(0.7,0.7,false)"
             });
         }
         gsap.to('.description, .title, .tag',{
-            transform: "translateY(120%)",
+            transform: "translateX(-120%)",
             opacity: 0,
             duration: 0.5,
-            ease: "power3.easeInOut"
+            ease: "slow(0.7,0.7,false)"
+        });
+        gsap.to('.description',{
+            transform: "translateX(120%)",
+            opacity: 0,
+            duration: 0.7,
+            ease: "slow(0.7,0.7,false)"
         });
     });
 });
