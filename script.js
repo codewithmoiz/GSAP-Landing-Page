@@ -136,9 +136,7 @@ document.querySelectorAll('.item').forEach((itm, index) => {
     });
 
     itm.addEventListener('mouseleave', () => {
-        // gsap.to('#main',{
-        //     backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(./Assets/bg-default.jpg)'
-        // });
+    
 
         if ((index + 1) % 2 === 0) {
             gsap.to(['.img-1', '.img-2'], {
